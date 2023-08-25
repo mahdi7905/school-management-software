@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Reports</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+</head>
+<body>
+     <!-- Nav Area -->
+     <section class="nav-area">
+        <div class="nav-container container-flex">
+            <a href="{% url 'teachers-panel' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            <ul class="list-flex">
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- Bio Area -->
+    <section class="data-area">
+        <div class="data-container data-card">
+            <div class="details">
+                <h3 class="details-header">Upload Mid-Term Reports For {{pupil.first_name}} {{pupil.surname}}</h3>
+                <div class="form-control">
+                    {% if pupil.Conventional_Grade == '1' %}
+                        <p>Grade One Reports</p>
+                        <form method="POST" action="{% url 'process-report1' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Grade1_Report.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                    {% endif %}
+                    {% if pupil.Conventional_Grade == '2' %}
+                        <p>Grade One Reports</p>
+                        <form method="POST" action="{% url 'process-report2' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Grade2_Report.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                    {% endif %}
+                    {% if pupil.Conventional_Grade == '3' %}
+                        <p>Grade One Reports</p>
+                        <form method="POST" action="{% url 'process-report3' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Grade3_Report.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                    {% endif %}
+                    {% if pupil.Conventional_Grade == '4' %}
+                        <p>Grade One Reports</p>
+                        <form method="POST" action="{% url 'process-report4' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Grade4_Report.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                    {% endif %}
+                    {% if pupil.Conventional_Grade == '5' %}
+                        <p>Grade One Reports</p>
+                        <form method="POST" action="{% url 'process-report5' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Grade5_Report.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                    {% endif %}
+                    {% if pupil.Conventional_Grade == '6' %}
+                        <p>Grade One Reports</p>
+                        <form method="POST" action="{% url 'process-report6' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Grade6_Report.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers Panel</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+</head>
+<body>
+    <!-- Nav Area -->
+    <section class="nav-area">
+        <div class="nav-container container-flex">
+            <a href="{% url 'teachers-panel' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            
+        </div>
+    </section>
+
+    <!-- Options -->
+    <section class="population-area">
+        <div class="pop-container menu-flex">
+            <a href="#" class="menu update-teacher-color">Reset Password</a>
+            <a href="{% url 'logout' %}" class="menu update-color">Logout</a>
+        </div>
+    </section>
+    <hr>
+
+    <!-- School Population -->
+    <section class="grade-area">
+        <div class="grade-container">
+            <!-- Grade One -->
+            <div class="grade-card">
+                <div class="inner-card">
+                    <h3>Pupils</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Adm No.</th>
+                            <th>Name</th>
+                            <th></th>
+                            <th></th>
+                            
+                        </tr>
+                        {% if request.user.teacher.position == 'CONVENTIONAL TEACHER' %}
+                        {% for pupil in c_pupils %}
+                        <tr>
+                            <td>{{pupil.ADM_No}}</td>
+                            {% if pupil.other_name %}
+                            <td>{{pupil.first_name}} {{pupil.surname}} {{pupil.other_name}}</td>
+                            {% else %}
+                            <td>{{pupil.first_name}} {{pupil.surname}}</td>
+                            {% endif %}
+                            <td><a href="{% url 'result-upload' pupil.id %}" class="btn btn-details">Upload Results</a></td>
+                            <td><a href="{% url 'report-upload' pupil.id %}" class="btn btn-view">Upload Reports</a></td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                        {% if request.user.teacher.position == 'ISLAMIYA TEACHER' %}
+                        {% for pupil in i_pupils %}
+                        <tr>
+                            <td>{{pupil.ADM_No}}</td>
+                            {% if pupil.other_name %}
+                            <td>{{pupil.first_name}} {{pupil.surname}} {{pupil.other_name}}</td>
+                            {% else %}
+                            <td>{{pupil.first_name}} {{pupil.surname}}</td>
+                            {% endif %}
+                            <td><a href="{% url 'result-upload' pupil.id %}" class="btn btn-details">Upload Results</a></td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                        
+                    </table>
+                </div>
+                
+               
+            </div>
+            
+        </div>
+    </section>
+</body>
+</html>

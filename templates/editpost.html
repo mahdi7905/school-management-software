@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+    <style>
+        input[type="text"]{
+            width: 70%;
+            border: 1px solid green;
+        }
+        textarea{
+            width:70%;
+            height: 500px;
+            padding: 10px;
+            resize: none;
+            margin-bottom: 20px;
+        }
+        textarea:focus{
+            outline: none;
+        }
+        input[type="file"]{
+            
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+     <!-- Nav Area -->
+     <section class="nav-area">
+        <div class="nav-container container-flex">
+            <a href="{% url 'contentCreator' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            <ul class="list-flex">
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- Contents Area -->
+    <section class="create-area">
+        <div class="create-container">
+            <div class="create-form-control">
+                <p class="create-heaer">Edit Post</p>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{postForm.Headline}}
+                    {{postForm.Content}}
+                    <div class="file-upload">
+                        <span class="tag">Upload Media</span>
+                        {{postForm.Image}}
+                    </div>
+                    <input type="submit" value="Edit Post" id="submit">
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    
+</body>
+</html>

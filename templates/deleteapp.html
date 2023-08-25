@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Post</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+</head>
+<body>
+    <section class="delete-area">
+        <form action="{% url 'delete-application' app.id %}" method="POST">
+            {% csrf_token %}
+            <p>Are you sure you want to delete application?</p>
+            <input type="submit" value="Yes" class="yes">
+            <a href="{% url 'applications' %}" class="cancel">Cancel</a>
+        </form>
+    </section>
+    
+    
+</body>
+</html>

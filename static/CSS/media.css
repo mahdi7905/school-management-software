@@ -1,0 +1,227 @@
+@media (max-width: 1100px){
+    .drop-down{
+        left: 40%;
+    }
+}
+@media (max-width: 1000px){
+
+
+    div.content-section.grid{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .content-section .contents{
+        margin-bottom: 20px;
+    }
+
+  
+
+
+    /* dashboard */
+    .divider{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .menu{
+        display: none;
+    }
+  
+    label{
+        display: contents;
+    }
+
+    .burger-nav{
+        display: block;
+    }
+   
+}
+
+
+
+@media (max-width: 900px){
+    
+    ul.flex{
+        display: none;
+    }
+
+    .list{
+        display: block;
+    }
+
+    .list ul li{
+        display: inline-block;
+        padding: 0px 10px;
+    }
+    .container{
+        max-width: 96%;
+        padding: 0px;
+    }
+
+    .nav-section .container{
+        height: 70px;
+    }
+    
+    .logo{
+        width: 50px;
+        padding: 0;
+    }
+
+    ul li:hover{
+        background-color: transparent;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .banner{
+        height: 250px;
+        margin-top: 70px;
+    }
+
+    .content-section{   
+        width: 96%;
+    
+    }
+    .table-area{
+        
+        margin-top: 80px;
+        
+    }
+
+   
+
+   
+
+    
+}
+
+
+@media (min-height: 1100px){
+    .nofixed-footer{
+        position: relative;
+        margin-top: 300px;
+    }
+}
+@media (min-height: 1250px){
+    .nofixed-footer{
+        position: relative;
+        margin-top: 400px;
+    }
+}
+
+
+@media (max-width: 700px){
+
+    .container .list{
+        display: none;
+    }
+    .b-area{
+        display: block;
+    }
+
+   
+    .banner{
+        height: 200px;
+    }
+
+    .notice{
+        display: block;
+    }
+
+  
+    .nav-section .container{
+        height: 70px;
+    }
+   
+    .container p.mg-t-l{
+        margin-top: 2rem;
+    }
+
+    #checkbox:checked ~ label .close{
+        left: 90%;
+    }
+  
+
+
+   
+
+}
+
+@media (max-width: 500px){
+    .hambuger{
+        left: 88%;
+    }
+    .application-container, .reason, .non-bd-input {
+        width: 100%;
+        
+    }
+}
+
+@media (max-width: 400px){
+   
+
+    
+
+    
+}
+
+@media (max-height: 850px){
+    ul li a{
+        padding: 10px;
+        
+    }
+}
+
+@media (max-height: 600px){
+    .dash{
+        width: 50px;
+    }
+
+    .menu .fixed ul.card{
+        
+        margin-bottom: 0px;
+        margin-top: 0px;
+        
+        
+    }
+
+    .menu .fixed .card{
+        padding: 10px;
+        
+    }
+
+    .footer{
+        padding: 7px;
+    }
+
+    ul.card li a{
+        display: block;
+        padding: 10px;
+        transition: .3s ease-in-out;
+    }
+}
+
+@media (max-width: 300px){
+    #checkbox:checked ~ label .close{
+        left: 86%;
+        top: 30px;
+    }
+
+    .dash{
+        width: 60px;
+    }
+}
+
+@media (max-width: 300px){
+    .hambuger{
+        left: 85%;
+    }
+
+    .bugger-list{
+        width: 90%;
+    }
+    .program-image{
+        width: 200px;
+    }
+}
+

@@ -1,0 +1,488 @@
+:root{
+    --pr-bg:rgb(255, 255, 255);
+    --sec-bg:rgb(210, 233, 217);
+    --pr-color:rgb(255, 255, 255);
+    --sec-color:rgb(93, 195, 46);
+    --hover:rgba(147, 190, 70,0.1);
+    --border:rgba(13, 8, 8,0.1);
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    
+}
+
+a{
+    color: #000;
+}
+
+.list{
+    display: none;
+}
+
+
+
+/* nav area*/
+
+.logo{
+    width: 70px;
+}
+
+.nav-img{
+    width: 150px;
+}
+.container{
+    height: 100px;
+}
+
+.ul-size{
+    padding: 40px 10px;
+    
+}
+
+
+.list li a:hover{
+    color: rgb(2, 69, 126);
+    border-bottom: 1px solid greenyellow;
+    transition: .3s all ease-in-out;
+}
+
+.ul-size:hover{
+    background-color: var(--hover);
+}
+
+.drop-down{
+    width: 50%;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+    z-index: 1000;
+    text-align: center;
+    transition: .3s all ease-in-out;
+}
+
+.ul-size .drop-down ul li a{
+    display: block;
+    padding: 20px 20px;
+}
+
+.ul-size .drop-down ul li{
+    border-bottom: 1px solid var(--border);
+    transition: .3s all ease-in-out;
+}
+
+.ul-size .drop-down ul li:hover{
+    background-color: var(--hover);
+}
+
+.img-container{
+    justify-content: center;
+    border-left: 1px solid var(--border);
+}
+
+.drop-down{
+    display: none;
+}
+
+.ul-size:hover > .drop-down{
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    
+}
+
+/* burger menu*/
+
+.wrapper{
+    width: 100%;
+    position: fixed;
+    top: -700px;
+    transition: .5s ease;
+    z-index: 11111;
+
+}
+.bugger-list{
+    width: 70%;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+    
+
+}
+.bugger-list ul{
+    text-align: center;
+}
+.bugger-list ul li a{
+    display: block;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    transition: .3s all ease-in-out;
+}
+.bugger-list ul li:hover{
+    background-color: var(--hover);
+}
+
+.hambuger{
+    width: 35px;
+    height: 5px;
+    position: fixed;
+    top: 33px;
+    left: 92%;
+    background-color: green;
+    cursor: pointer;
+    z-index: 1111111;
+}
+
+.hambuger::before,
+.hambuger::after{
+    content: '';
+    width: 35px;
+    height: 5px;
+    position: absolute;
+    border-radius: 5px;
+    background-color: green;
+}
+.hambuger::before{
+    top: -10px;
+}
+.hambuger::after{
+    top: 10px;
+}
+
+#check:checked ~ .wrapper{
+    top: 70px;
+}
+
+
+#check{
+    display: none;
+}
+.b-area{
+    display: none;
+}
+
+/* banner*/
+.banner{
+    background: var(--sec-bg);
+    height: 300px;
+    margin-top: 100px;
+}
+.notice{
+    background: black;
+    color: white;
+    display: none;
+}
+
+/* content section*/
+
+.content-section{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.content-section.grid{
+    grid-template-columns: 70% 25%;
+    column-gap: 5%;
+}
+
+.content-section .contents{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.content-section .contents .small-card{
+    box-shadow: none;
+    background-color: var(--sec-color);
+    border-radius: 0;
+    width: 100%;
+}
+
+.contents .post-card{
+    width: 90%;
+}
+
+.social{
+    width: 30px;
+}
+.imp-links{
+    margin: 0 auto;
+}
+.imp-links.small-card{
+    width: 100%;
+    box-shadow: none;
+}
+
+div div h3{
+    background-color: var(--sec-color);
+}
+.links a{
+    display: block;
+    text-align: start;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    transition: .3s all ease;
+}
+.links a:hover{
+    background-color: var(--hover);
+}
+
+.contacts{
+    border-bottom: 1px solid var(--border);
+}
+
+/* footer */
+.footer-area{
+    width: 100%;
+    margin-top: 30px;
+    border-top: 2px solid var(--border);
+    
+}
+
+.footer-area .grid{
+    grid-template-columns: 1fr;
+}
+
+.casual-text{
+    font-size: 12px;
+}
+.bold{
+    font-weight: bold;
+}
+
+
+
+/* login page*/
+.login-region{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-region .card{
+    width: 300px;
+    height: 300px;
+    
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+}
+
+.card p a{
+    color: blue;
+}
+
+/* Programmes Page*/
+.program-area{
+    width: 100%;
+    margin-top: 110px;
+}
+
+.program-container{
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.program-card{
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+    border-radius: 5px;
+}
+.program-content{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.program-header{
+    line-height: 40px;
+    color: green;
+}
+.program-main-header{
+    line-height: 40px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: green;
+}
+.program-image-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.program-image{
+    width: 300px;
+}
+
+/* Tables Page*/
+.table-area{
+    width: 100%;
+    margin-top: 120px;
+    padding: 10px;
+}
+.table-header{
+    background-color: green;
+    padding: 5px;
+    text-align: center;
+    color: white;
+}
+
+.table-container ul li a{
+    display: block;
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+    transition:all .3s ease-in-out;
+}
+.table-container ul li a:hover{
+    background: var(--hover);
+}
+.fixed-footer{
+    width: 100%;
+    position: fixed;
+    bottom: 170px;
+    
+}
+
+.calendar-container{
+    width: 80%;
+    margin: 0 auto;
+}
+.calendar-card{
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+    border-radius: 5px;
+}
+.calendar-header{
+    text-align: center;
+    color: green;
+    line-height: 50px;
+}
+.placeholder{
+    width: 100%;
+    height: 300px;
+    background-color: grey;
+    margin-bottom: 20px;
+}
+.overview{
+    margin: 10px;
+}
+.btn-apply{
+    padding: 10px;
+    background-color: steelblue;
+    border-radius: 5px;
+    float: right;
+    margin: 10px;
+    transition: all .3s ease-in-out;
+}
+.btn-apply:hover{
+    transform: scale(1.05);
+    color: white;
+}
+
+.nofixed-footer{
+    position: relative;
+    margin-top: 100px;
+}
+.admission-header{
+    color: green;
+    margin: 10px;
+}
+.admission-banner{
+    width: 100%;
+    height: 300px;
+    margin: 5px 0;
+}
+.admission-area{
+    margin-top: 120px;
+    
+    
+}
+.vacancy-area{
+    margin-top: 120px;
+    padding: 20px;
+}
+.vacancy-header{
+    color: green;
+    font-size: 30px;
+}
+.vacancy-area p{
+    margin-bottom: 30px;
+}
+.job-apply{
+    padding: 10px;
+    background-color: aquamarine;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+    transition: all .3s ease;
+}
+.job-apply:hover{
+    padding: 15px;
+    border-radius: 20px;
+}
+
+/* Teaching application Page*/
+
+.application-container{
+    width: 90%;
+    margin: 0px auto;
+    padding: 0px;
+}
+.application-area{
+    width: 100%;
+    margin-top: 200px;
+}
+.apply-header{
+    color: green;
+    text-align: center;
+    font-size: 35px;
+    padding: 25px 0;
+}
+
+.application-form-control{
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+}
+
+.reason{
+    width: 80%;
+    height: 200px;
+    margin-bottom: 30px;
+    padding: 10px;
+    resize: none;
+}
+.reason:focus{
+    outline: none;
+}
+.file{
+    margin: 0 10px;
+}
+.upload{
+    
+    margin: 25px auto;
+}
+.btn-application{
+    width: 80%;
+    padding: 10px;
+    border: 0;
+    cursor: pointer;
+    background-color: skyblue;
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+    margin: 10px 0;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+}
+.btn-application:hover{
+    transform: scale(1.03);
+}

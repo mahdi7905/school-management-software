@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/CSS/utilities.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/media.css' %}">
+    <title>Attachments</title>
+    <style>
+        .view .container img{
+            width: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--sec-color);
+        }
+        .pd{
+            display: block;
+            padding: 20px;
+            transition: all .3s ease;
+        }
+        .pd:hover{
+            background-color: var(--hover);
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">
+        <div class="open"></div>
+        <div class="close"></div>
+    </label>
+    <div class="burger-nav">
+        <div class="flexes cd pd-r-m">
+            <img src="{% static 'images/pngs/dashboard.jpeg' %}" class="dash">
+            <h2>Dashboard</h2>
+        </div>
+        <ul class="card">
+            <li><a href="{% url 'admission-letter' %}" class="flexs"><img src="{% static 'images/pngs/Admission.png' %}">Admission Letter</a></li>
+            <li><a href="{% url 'dashboard' %}" class="flexs"><img src="{% static 'images/pngs/bio.png' %}">Bio-data</a></li>
+            <li><a href="{% url 'attachments' %}" class="flexs"><img src="{% static 'images/pngs/attachments.png' %}">Attachments</a></li>
+            <li><a href="{% url 'result' %}" class="flexs"><img src="{% static 'images/pngs/result.png' %}">Result</a></li>
+            <li><a href="{% url 'report' %}" class="flexs"><img src="{% static 'images/pngs/report.png' %}">Mid-Term Report</a></li>
+            <li><a href="#" class="flexs"><img src="{% static 'images/pngs/reset.png' %}">Reset password</a></li>
+            <li><a href="{% url 'logout' %}" class="flexs"><img src="{% static 'images/pngs/log-out.png' %}">Logout</a></li>
+        </ul>
+    </div>
+    <div class="divider">
+        <div class="menu pd-r-m">
+            <div class="fixed">
+                <div class="card flexes">
+                    <img src="{% static 'images/pngs/dashboard.jpeg' %}" class="dash">
+                    <h2>Dashboard</h2>
+                </div>
+                
+                <ul class="card">
+                    <li><a href="{% url 'admission-letter' %}" class="flexs"><img src="{% static 'images/pngs/Admission.png' %}">Admission Letter</a></li>
+                    <li><a href="{% url 'dashboard' %}" class="flexs"><img src="{% static 'images/pngs/bio.png' %}">Bio-data</a></li>
+                    <li class="active"><a href="{% url 'attachments' %}" class="flexs"><img src="{% static 'images/pngs/attachments.png' %}">Attachments</a></li>
+                    <li><a href="{% url 'result' %}" class="flexs"><img src="{% static 'images/pngs/result.png' %}">Result</a></li>
+                    <li><a href="{% url 'report' %}" class="flexs"><img src="{% static 'images/pngs/report.png' %}">Mid-Term Report</a></li>
+                    <li><a href="#" class="flexs"><img src="{% static 'images/pngs/reset.png' %}">Reset password</a></li>
+                    <li><a href="{% url 'login' %}" class="flexs"><img src="{% static 'images/pngs/log-out.png' %}">Logout</a></li>
+                </ul>
+                
+            </div>
+        </div>
+        <div class="view">
+           
+            <div class="container">
+                <div class="header flexx pd-t-m">
+                    <img src="{{request.user.pupil.passport.url}}" class="mg-b-s passport">
+                    <p class="pupil-name">{{request.user.Pupil.first_name}} {{request.user.Pupil.surname}} {{request.user.Pupil.other_name}}</p>
+                    <p class="pd-b-s"><span class="bold-text">Admission Number:</span> {{request.user}}</p>
+                    <p class="pd-b-s"><span class="bold-text">Conventional Grade:</span> {{request.user.pupil.Conventional_Grade}} ({{request.user.pupil.Conventional_Arm}})</p>
+                    <p class="pd-b-s"><span class="bold-text">Islamiyyah Grade:</span> {{request.user.pupil.Islamiya_Grade}} ({{request.user.pupil.Islamiya_Arm}})</p>
+
+                </div>
+                <div class="contents card mg-t-m">
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Attachments</h3>
+                        <div class="flex"> 
+                            {% if request.user.pupil.Birth_Cert and request.user.pupil.Indigene_Cert and request.user.pupil.Medical_Cert and request.user.pupil.National_id %}
+                                <p><a class="pd" href="{{request.user.pupil.Birth_Cert.url}}" download="Birth_Certificate">Birth Certificate</a></p>
+                                <p><a class="pd" href="{{request.user.pupil.Indigene_Cert.url}}" download="Indigene">Indigen Certificate</a></p>
+                                <p><a class="pd" href="{{request.user.pupil.Medical_Cert.url}}" download="Medical_Report">Medical Report</a></p>
+                                <p><a class="pd" href="{{request.user.pupil.National_id.url}}" download="National_ID">National Identification</a></p>
+                            {% else %}
+                                <p><a class="pd" href="{% url 'attachments' %}">Birth Certificate</a></p>
+                                <p><a class="pd" href="{% url 'attachments' %}">Indigen Certificate</a></p>
+                                <p><a class="pd" href="{% url 'attachments' %}">Medical Report</a></p>
+                                <p><a class="pd" href="{% url 'attachments' %}">National Identification</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

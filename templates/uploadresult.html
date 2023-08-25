@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Reports</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+</head>
+<body>
+     <!-- Nav Area -->
+     <section class="nav-area">
+        <div class="nav-container container-flex">
+            <a href="{% url 'teachers-panel' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            <ul class="list-flex">
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- Bio Area -->
+    <section class="data-area">
+        <div class="data-container data-card">
+            <div class="details">
+                <h3 class="details-header">Upload Result For {{pupil.first_name}} {{pupil.surname}}</h3>
+                <div class="form-control">
+                    {% if request.user.teacher.position == 'CONVENTIONAL TEACHER' %}
+                        {% if pupil.Conventional_Grade == '1' %}
+                            <p>Grade One Results</p>
+                            <form method="POST" action="{% url 'process-result1' pupil.id %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{Grade1_Result.as_p}}
+                                <input type="submit" value="Upload">
+                            </form>
+                        {% endif %}
+                        {% if pupil.Conventional_Grade == '2' %}
+                            <p>Grade Two Results</p>
+                            <form method="POST" action="{% url 'process-result2' pupil.id %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{Grade2_Result.as_p}}
+                                <input type="submit" value="Upload">
+                            </form>
+                        {% endif %}
+                        {% if pupil.Conventional_Grade == '3' %}
+                            <p>Grade Three Results</p>
+                            <form method="POST" action="{% url 'process-result3' pupil.id %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{Grade3_Result.as_p}}
+                                <input type="submit" value="Upload">
+                            </form>
+                        {% endif %}
+                        {% if pupil.Conventional_Grade == '4' %}
+                            <p>Grade Four Results</p>
+                            <form method="POST" action="{% url 'process-result4' pupil.id %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{Grade4_Result.as_p}}
+                                <input type="submit" value="Upload">
+                            </form>
+                        {% endif %}
+                        {% if pupil.Conventional_Grade == '5' %}
+                        <p>Grade Five Results</p>
+                            <form method="POST" action="{% url 'process-result5' pupil.id %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{Grade5_Result.as_p}}
+                                <input type="submit" value="Upload">
+                            </form>
+                        {% endif %}
+                        {% if pupil.Conventional_Grade == '6' %}
+                            <p>Grade Six Results</p>
+                            <form method="POST" action="{% url 'process-result6' pupil.id %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{Grade6_Result.as_p}}
+                                <input type="submit" value="Upload">
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                    {% if request.user.teacher.position == 'ISLAMIYA TEACHER' %}
+                        {% if pupil.Islamiya_Grade == '1' %}
+                        <p>Saff One Results</p>
+                        <form method="POST" action="{% url 'process-saff1' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Saff1_Result.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                        {% endif %}
+                        {% if pupil.Islamiya_Grade == '2' %}
+                        <p>Saff Two Results</p>
+                        <form method="POST" action="{% url 'process-saff2' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Saff2_Result.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                        {% endif %}
+                        {% if pupil.Islamiya_Grade == '3' %}
+                        <p>Saff Three Results</p>
+                        <form method="POST" action="{% url 'process-saff3' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Saff3_Result.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                        {% endif %}
+                        {% if pupil.Islamiya_Grade == '4' %}
+                        <p>Saff Four Results</p>
+                        <form method="POST" action="{% url 'process-saff4' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Saff4_Result.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                        {% endif %}
+                        {% if pupil.Islamiya_Grade == '5' %}
+                        <p>Saff Five Results</p>
+                        <form method="POST" action="{% url 'process-saff5' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Saff5_Result.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                        {% endif %}
+                        {% if pupil.Islamiya_Grade == '6' %}
+                        <p>Saff Six Results</p>
+                        <form method="POST" action="{% url 'process-saff6' pupil.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{Saff6_Result.as_p}}
+                            <input type="submit" value="Upload">
+                        </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

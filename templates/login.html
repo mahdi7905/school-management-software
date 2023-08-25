@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static '/CSS/utilities.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/media.css' %}">
+	<title>login page</title>
+</head>
+<body>
+
+	 <!-- Nav Area -->
+	 
+	<section class="login-region">
+			<div class="card pd-r-s">
+				<h2 class="mg-r-s mg-b-m">Login</h2>
+				<form action="" method="POST">
+					{% csrf_token %}
+					<input type="text" name="username" placeholder="username" class="shady-input" required>
+					<input type="password" name="password" placeholder="password" class="shady-input" required>
+					<p class="mg-b-s">Forgot password? click <a href="#">here</a> to reset.</p> 
+					<input type="submit" value="Login" class="btn-submit mg-b-s">
+				</form>	
+				
+			</div>
+	</section>
+	
+
+</body>
+</html>

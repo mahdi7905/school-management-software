@@ -1,0 +1,374 @@
+:root{
+    --pr-bg:rgb(255, 255, 255);
+    --sec-bg:rgb(210, 233, 217);
+    --pr-color:rgb(255, 255, 255);
+    --sec-color:rgb(93, 195, 46);
+    --hover:rgba(147, 190, 70,0.1);
+    --border:rgba(13, 8, 8,0.1);
+}
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    
+}
+
+a{
+    color: #000;
+}
+
+
+/* Nav*/
+.divider{
+    display: grid;
+    grid-template-columns: 300px calc(100% - 300px);
+    
+}
+
+.flexes{
+    display: flex;
+    align-items: center;
+}
+
+div.card.flex{
+    border-bottom: 1px solid var(--border)
+}
+
+.menu .fixed div.card{
+    border-radius: 0;
+    margin-bottom: 0px;
+    padding: 20px;
+    box-shadow: none;
+    border-bottom: 1px solid var(--border);
+}
+
+.menu .fixed ul.card{
+    text-align: start;
+    margin-bottom: 60px;
+    margin-top: 30px;
+    box-shadow: none;
+    
+}
+
+ul.card li a{
+    display: block;
+    padding: 15px;
+    transition: .3s ease-in-out;
+}
+
+.active{
+    background-color: var(--sec-bg);
+}
+
+ul li{
+    border-bottom: 1px solid var(--border);
+}
+
+ul li:hover{
+    background: var(--hover);
+}
+ul li:hover>a{
+    transform: translateX(10px);
+}
+
+.card li a img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+ul.card .flexs{
+    display: flex;
+    align-items: center;
+}
+
+.dash{
+    width: 70px;
+    margin-right: 10px;
+}
+
+.menu{
+    border-right: 1px solid var(--border);
+    background-color: white;
+}
+
+.menu .fixed{
+    position: fixed;
+    top: 0px;
+    width: 250px;
+}
+
+
+
+.footer{
+    width: 100%;
+    padding: 15px;
+    border-top: 1px solid var(--border);
+}
+
+.footer .grid{
+    grid-template-columns: 1fr;
+}
+
+.casual-text{
+    font-size: 10px;
+}
+.text{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.socials .flex div{
+    text-align: center;
+}
+
+.adress .logo{
+    width: 40px;
+}
+
+.socials .flex{
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Contents*/
+
+/* burger-menu start*/
+#checkbox{
+    display: none;
+}
+.open{
+    width: 40px;
+    height: 5px;
+    background:green;
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 111;
+    transition: .2s all ease-out;
+}
+
+.open::before,
+.open::after{
+    content: '';
+    width: 40px;
+    height: 5px;
+    background-color: green;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+}
+.open::before{
+    transform: translateY(10px);
+}
+.open::after{
+    transform: translateY(-10px);
+}
+
+.close{
+    width: 30px;
+    height: 5px;
+    background-color: rgb(212, 0, 0);
+    border-radius: 5px;
+    position: fixed;
+    left: -40px;
+    top: 45px;
+    cursor: pointer;
+    transform: rotate(45deg);
+    z-index: 11111;
+    transition: .2s all ease-in-out;
+
+}
+
+.close::after{
+    content: '';
+    width: 30px;
+    height: 5px;
+    background-color: rgb(212, 0, 0);
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    transform: rotate(90deg);
+    
+}
+
+.burger-nav{
+    width: 100%;
+    position: fixed;
+    left: -100%;
+    background: var(--sec-bg);
+    z-index: 1111;
+    transition: .2s all ease-in-out;
+}
+.burger-nav .flexes{
+    justify-content: center;
+    
+}
+.burger-nav ul.card{
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+.cd{
+    border-bottom: 1px solid var(--border);
+}
+ul.flexes{
+    flex-direction: column;
+}
+
+.burger-nav .card{
+    box-shadow: none;
+}
+.burger-nav .card .flexs{
+    justify-content: center;
+}
+
+#checkbox:checked ~ .burger-nav{
+    left: 0;
+}
+
+#checkbox:checked ~ label .close{
+    left: 94%;
+}
+
+label{
+    display: none;
+}
+.burger-nav{
+    display: none;
+}
+
+
+/* burger-menu end*/
+
+
+.dis{
+    display: flex;
+    justify-content: center;
+    height: 100px;
+}
+
+.options .card{
+    background: white;
+}
+.options .card .flexs{
+    justify-content: center;
+}
+
+
+.view{
+    background-color: rgba(0,0,0,0.02);
+    position: relative;
+}
+
+.header{
+    max-width: 94%;
+    height: 300px;
+    margin: 0 auto;
+    border-bottom: 2px solid var(--border);
+}
+
+.view .container img{
+    width: 100px;
+    border-radius: 50%;
+    border: 5px solid var(--sec-color);
+}
+
+.pupil-name{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 2rem;
+}
+
+.view .container .flexx{
+    flex-direction: column;
+    
+}
+
+.contents{
+    width: 100%;
+    
+}
+
+
+.contents.card{
+    box-shadow: none;
+    
+}
+
+.details{
+    border: 1px solid var(--sec-color);
+}
+
+.details-header{
+    background-color: var(--sec-color);
+    width: 100%;
+}
+
+.details .flex{
+    flex-direction: column;
+    align-items: flex-start;
+}
+.details .flex p{
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+.bold-text{
+    font-weight: bold;
+}
+.round{
+    border: 1px solid var(--border);
+}
+
+.flex .btn{
+    padding: 12px;
+    width: 100%;
+    background: var(--sec-color);
+    transition: 0.4s all ease-in-out;
+}
+.flex .btn:hover{
+    background: rgb(174, 255, 0);
+}
+
+
+/* attachments page */
+.flex-cert{
+    padding: 10px;
+}
+
+.holder{
+    width: 250px;
+    height: 350px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+/* result page page */
+
+.result-container{
+    width: 90%;
+    margin: 10px auto;
+    border: 1px solid var(--sec-color);
+}
+
+.flex-result{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.result-link{
+    width: 100%;
+    display: block;
+    transition: .3s all ease;
+}
+
+.result-link:hover{
+    background: var(--hover);
+}

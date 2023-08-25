@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Creation</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+    <style>
+        .f-area{
+            width: 100%;
+            
+            margin-top: 70px;
+            
+        }
+        .form-container{
+            height: calc(100vh - 70px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .error{
+            color: red;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Nav Area -->
+    <section class="nav-area">
+        <div class="nav-container container-flex">
+            <a href="{% url 'kia-admin' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            <ul class="list-flex">
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Form Area -->
+    <section class="f-area">
+        <div class="form-container">
+            <div class="form-card">
+                <h3>Student Registeration</h3>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {% for message in messages %}
+                        <p class="error">{{message}}</p>
+                    {% endfor %}
+                    <input name="fname" type="text" placeholder="First Name" class="reg" required>
+                    <input name="surname" type="text" placeholder="Surname" class="reg" required>
+                    <input name="oname" type="text" placeholder="Other Name" class="reg">
+                    <input name="username" type="text" placeholder="Admission Number" class="reg" required>
+                    <input name="c_grade" type="text" placeholder="Conventional Grade" class="reg" required>
+                    <input name="i_grade" type="text" placeholder="Islamiyyah Grade" class="reg" required>
+                    <input name="password" type="password" placeholder="Enter Password" class="reg" required>
+                    <input type="submit" value="Register" class="btn btn-register">
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+   
+</body>
+</html>

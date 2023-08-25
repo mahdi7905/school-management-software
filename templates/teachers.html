@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Teachers</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+</head>
+<body>
+    <!-- Nav Area -->
+    <section class="nav-area">
+        <div class="nav-container container-flex">
+            {% if request.user.teacher.position == 'CONVENTIONAL HEAD' %}
+            <a href="{% url 'kia-head-teacher' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% endif %}
+            {% if request.user.teacher.position == 'PRIMARY HEAD' %}
+            <a href="{% url 'sectional-head' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% endif %}
+            {% if request.user.teacher.position == 'NURSERY HEAD' %}
+            <a href="{% url 'sectional-head' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% endif %}
+            {% if request.user.teacher.position == 'ISLAMIYA HEAD' %}
+            <a href="{% url 'islamiya-head' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% endif %}
+            
+        </div>
+    </section>
+
+    <!-- Options -->
+    <section class="population-area">
+        <div class="pop-container menu-flex">
+            {% if request.user.teacher.position == 'CONVENTIONAL HEAD' %}
+            <a href="{% url 'kia-head-teacher' %}" class="menu teacher-color">View Pupils</a>
+            {% endif %}
+            {% if request.user.teacher.position == 'PRIMARY HEAD' %}
+            <a href="{% url 'sectional-head' %}" class="menu teacher-color">View Pupils</a>
+            {% endif %}
+            {% if request.user.teacher.position == 'NURSERY HEAD' %}
+            <a href="{% url 'sectional-head' %}" class="menu teacher-color">View Pupils</a>
+            {% endif %}
+            {% if request.user.teacher.position == 'ISLAMIYA HEAD' %}
+            <a href="{% url 'islamiya-head' %}" class="menu teacher-color">View Pupils</a>
+            {% endif %}
+            <a href="#" class="menu update-teacher-color">Reset Password</a>
+            <a href="{% url 'logout' %}" class="menu update-color">Logout</a>
+        </div>
+    </section>
+    <hr>
+
+    <!-- School Population -->
+    <section class="grade-area">
+        <div class="grade-container">
+            <!-- Grade One -->
+            <div class="grade-card">
+                <h3 class="grade-header">Teachers</h3>
+                <!-- Conventional -->
+                {% if request.user.teacher.position == 'CONVENTIONAL HEAD' %}
+                <div class="inner-card">
+                    
+                    <h3>Montessori</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Arm</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                        </tr>
+                        
+                        {% for teacher in nursery %}
+                        <tr>
+                            {% if teacher.other_name %}
+                            <td>{{teacher.first_name}} {{teacher.surname}} {{teacher.other_name}}</td>
+                            {% else %}
+                            <td>{{teacher.first_name}} {{teacher.surname}}</td>
+                            {% endif %}
+                            <td>{{teacher.Grade}}</td>
+                            <td>{{teacher.Arm}}</td>
+                            <td>{{teacher.Phone}}</td>
+                            <td>{{teacher.email}}</td>
+                            <td><a href="{% url 'teacher-upgrade' teacher.id %}" class="btn btn-view">Change Grade</a></td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </table>
+                    <h4 class="sectional">Nursery Head: Full Name</h4>
+                </div>
+                <div class="inner-card">
+                    <h3>Conventional</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Arm</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                        </tr>
+                        
+                        {% for teacher in conventional %}
+                        <tr>
+                            {% if teacher.other_name %}
+                            <td>{{teacher.first_name}} {{teacher.surname}} {{teacher.other_name}}</td>
+                            {% else %}
+                            <td>{{teacher.first_name}} {{teacher.surname}}</td>
+                            {% endif %}
+                            <td>{{teacher.Grade}}</td>
+                            <td>{{teacher.Arm}}</td>
+                            <td>{{teacher.Phone}}</td>
+                            <td>{{teacher.email}}</td>
+                            <td><a href="{% url 'teacher-upgrade' teacher.id %}" class="btn btn-view">Change Grade</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <h4 class="sectional">Conventional Head: Full Name</h4>
+                </div>
+                {% endif %}
+                
+                {% if request.user.teacher.position == 'ISLAMIYA HEAD' %}
+                <div class="inner-card">
+                    <h3>Islamiya</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Arm</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                        </tr>
+                        
+                        {% for teacher in islamiya %}
+                        <tr>
+                            {% if teacher.other_name %}
+                            <td>{{teacher.first_name}} {{teacher.surname}} {{teacher.other_name}}</td>
+                            {% else %}
+                            <td>{{teacher.first_name}} {{teacher.surname}}</td>
+                            {% endif %}
+                            <td>{{teacher.Grade}}</td>
+                            <td>{{teacher.Arm}}</td>
+                            <td>{{teacher.Phone}}</td>
+                            <td>{{teacher.email}}</td>
+                            <td><a href="{% url 'teacher-upgrade' teacher.id %}" class="btn btn-view">Change Grade</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+            
+            
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head Teacher's Panel</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+</head>
+<body>
+    <!-- Nav Area -->
+    <section class="nav-area">
+        <div class="nav-container container-flex">
+            <a href="{% url 'kia-head-teacher' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            
+        </div>
+    </section>
+
+    <!-- Options -->
+    <section class="population-area">
+        <div class="pop-container menu-flex">
+            <a href="{% url 'teachers' %}" class="menu teacher-color">View Teachers</a>
+            <a href="#" class="menu update-teacher-color">Reset Password</a>
+            <a href="{% url 'logout' %}" class="menu update-color">Logout</a>
+        </div>
+    </section>
+    <hr>
+
+    <!-- School Population -->
+    <section class="grade-area">
+        <div class="grade-container">
+            <!-- Grade One -->
+            <div class="grade-card">
+                <h3 class="grade-header">Conventional</h3>
+                <!-- Conventional -->
+                <div class="inner-card">
+                    <h3>Grade 1</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Adm No.</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Arm</th>
+                            <th>Medical Emergency</th>
+                            <th></th>
+                            
+                        </tr>
+                        
+                        {% for pupil in c_g1 %}
+                        <tr>
+                            <td>{{pupil.ADM_No}}</td>
+                            {% if pupil.other_name %}
+                            <td>{{pupil.first_name}} {{pupil.surname}} {{pupil.other_name}}</td>
+                            {% else %}
+                            <td>{{pupil.first_name}} {{pupil.surname}}</td>
+                            {% endif %}
+                            <td>{{pupil.Conventional_Grade}}</td>
+                            <td>{{pupil.Conventional_Arm}}</td>
+                            <td><a href="{% url 'medical-emergency' pupil.id %}" class="btn btn-details">Details</a></td>
+                            <td><a href="{% url 'details' pupil.id %}" class="btn btn-view">View</a></td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </table>
+                </div>
+                <div class="inner-card">
+                    <h3>Grade 2</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Adm No.</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Arm</th>
+                            <th>Medical Emergency</th>
+                            <th></th>
+                            
+                        </tr>
+                        
+                        {% for pupil in c_g2 %}
+                        <tr>
+                            <td>{{pupil.ADM_No}}</td>
+                            {% if pupil.other_name %}
+                            <td>{{pupil.first_name}} {{pupil.surname}} {{pupil.other_name}}</td>
+                            {% else %}
+                            <td>{{pupil.first_name}} {{pupil.surname}}</td>
+                            {% endif %}
+                            <td>{{pupil.Conventional_Grade}}</td>
+                            <td>{{pupil.Conventional_Arm}}</td>
+                            <td><a href="{% url 'medical-emergency' pupil.id %}" class="btn btn-details">Details</a></td>
+                            <td><a href="{% url 'details' pupil.id %}" class="btn btn-view">View</a></td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </table>
+                </div>
+                <div class="inner-card">
+                    <h3>Grade 3</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Adm No.</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Arm</th>
+                            <th>Medical Emergency</th>
+                            <th></th>
+                            
+                        </tr>
+                        
+                        {% for pupil in c_g3 %}
+                        <tr>
+                            <td>{{pupil.ADM_No}}</td>
+                            {% if pupil.other_name %}
+                            <td>{{pupil.first_name}} {{pupil.surname}} {{pupil.other_name}}</td>
+                            {% else %}
+                            <td>{{pupil.first_name}} {{pupil.surname}}</td>
+                            {% endif %}
+                            <td>{{pupil.Conventional_Grade}}</td>
+                            <td>{{pupil.Conventional_Arm}}</td>
+                            <td><a href="{% url 'medical-emergency' pupil.id %}" class="btn btn-details">Details</a></td>
+                            <td><a href="{% url 'details' pupil.id %}" class="btn btn-view">View</a></td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </table>
+                </div>
+                <div class="inner-card">
+                    <h3>Grade 4</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Adm No.</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Arm</th>
+                            <th>Medical Emergency</th>
+                            <th></th>
+                            
+                        </tr>
+                        
+                        {% for pupil in c_g4 %}
+                        <tr>
+                            <td>{{pupil.ADM_No}}</td>
+                            {% if pupil.other_name %}
+                            <td>{{pupil.first_name}} {{pupil.surname}} {{pupil.other_name}}</td>
+                            {% else %}
+                            <td>{{pupil.first_name}} {{pupil.surname}}</td>
+                            {% endif %}
+                            <td>{{pupil.Conventional_Grade}}</td>
+                            <td>{{pupil.Conventional_Arm}}</td>
+                            <td><a href="{% url 'medical-emergency' pupil.id %}" class="btn btn-details">Details</a></td>
+                            <td><a href="{% url 'details' pupil.id %}" class="btn btn-view">View</a></td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </table>
+                </div>
+                <div class="inner-card">
+                    <h3>Grade 5</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Adm No.</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Arm</th>
+                            <th>Medical Emergency</th>
+                            <th></th>
+                            
+                        </tr>
+                        
+                        {% for pupil in c_g5 %}
+                        <tr>
+                            <td>{{pupil.ADM_No}}</td>
+                            {% if pupil.other_name %}
+                            <td>{{pupil.first_name}} {{pupil.surname}} {{pupil.other_name}}</td>
+                            {% else %}
+                            <td>{{pupil.first_name}} {{pupil.surname}}</td>
+                            {% endif %}
+                            <td>{{pupil.Conventional_Grade}}</td>
+                            <td>{{pupil.Conventional_Arm}}</td>
+                            <td><a href="{% url 'medical-emergency' pupil.id %}" class="btn btn-details">Details</a></td>
+                            <td><a href="{% url 'details' pupil.id %}" class="btn btn-view">View</a></td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </table>
+                </div>
+                <div class="inner-card">
+                    <h3>Grade 6</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Adm No.</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Arm</th>
+                            <th>Medical Emergency</th>
+                            <th></th>
+                            
+                        </tr>
+                        
+                        {% for pupil in c_g6 %}
+                        <tr>
+                            <td>{{pupil.ADM_No}}</td>
+                            {% if pupil.other_name %}
+                            <td>{{pupil.first_name}} {{pupil.surname}} {{pupil.other_name}}</td>
+                            {% else %}
+                            <td>{{pupil.first_name}} {{pupil.surname}}</td>
+                            {% endif %}
+                            <td>{{pupil.Conventional_Grade}}</td>
+                            <td>{{pupil.Conventional_Arm}}</td>
+                            <td><a href="{% url 'medical-emergency' pupil.id %}" class="btn btn-details">Details</a></td>
+                            <td><a href="{% url 'details' pupil.id %}" class="btn btn-view">View</a></td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </table>
+                </div>
+                
+               
+            </div>
+            <div class="grade-card">
+                <h3 class="grade-header">Montessori</h3>
+                <!-- Conventional -->
+                <div class="inner-card">
+                    <h3>Nursery 1</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Adm No.</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Arm</th>
+                            <th>Medical Emergency</th>
+                            <th></th>
+                            
+                        </tr>
+                        
+                        {% for pupil in nursery1 %}
+                        <tr>
+                            <td>{{pupil.ADM_No}}</td>
+                            {% if pupil.other_name %}
+                            <td>{{pupil.first_name}} {{pupil.surname}} {{pupil.other_name}}</td>
+                            {% else %}
+                            <td>{{pupil.first_name}} {{pupil.surname}}</td>
+                            {% endif %}
+                            <td>{{pupil.Conventional_Grade}}</td>
+                            <td>{{pupil.Conventional_Arm}}</td>
+                            <td><a href="{% url 'medical-emergency' pupil.id %}" class="btn btn-details">Details</a></td>
+                            <td><a href="{% url 'details' pupil.id %}" class="btn btn-view">View</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <div class="inner-card">
+                    <h3>Nursery 2</h3>
+                    <table class="ex">
+                        <tr>
+                            <th>Adm No.</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Arm</th>
+                            <th>Medical Emergency</th>
+                            <th></th>
+                            
+                        </tr>
+                        
+                        {% for pupil in nursery2 %}
+                        <tr>
+                            <td>{{pupil.ADM_No}}</td>
+                            {% if pupil.other_name %}
+                            <td>{{pupil.first_name}} {{pupil.surname}} {{pupil.other_name}}</td>
+                            {% else %}
+                            <td>{{pupil.first_name}} {{pupil.surname}}</td>
+                            {% endif %}
+                            <td>{{pupil.Conventional_Grade}}</td>
+                            <td>{{pupil.Conventional_Arm}}</td>
+                            <td><a href="{% url 'medical-emergency' pupil.id %}" class="btn btn-details">Details</a></td>
+                            <td><a href="{% url 'details' pupil.id %}" class="btn btn-view">View</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+</body>
+</html>

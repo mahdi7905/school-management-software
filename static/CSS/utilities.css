@@ -1,0 +1,317 @@
+
+/* Display and Cards */
+
+
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap:20%;
+    
+}
+
+.container{
+    max-width: 90%;
+    padding: 0px 15px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
+.nav-section{
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0%;
+    background-color: white;
+    z-index: 111111;
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+
+}
+
+.card{
+    margin-bottom: 15px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+}
+
+.small-card{
+    width: 200px;
+    margin-bottom: 15px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+}
+
+.form-card{
+    width: 500px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 3%;
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+}
+
+.post-card{
+    width: 100%;
+    border-radius: 5px;
+    padding: 5%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 10px rgba(13, 8, 8,0.3);
+}
+
+
+
+/* Margins */
+
+.mg-r-l{
+    margin:4rem;
+}
+
+.mg-r-m{
+    margin:2rem;
+}
+
+.mg-r-s{
+    margin:1rem;
+}
+
+.mg-t-l{
+    margin-top: 4rem;
+}
+
+.mg-t-m{
+    margin-top: 2rem;
+}
+
+.mg-t-s{
+    margin-top: 1rem;
+}
+
+.mg-b-l{
+    margin-bottom: 4rem;
+}
+
+.mg-b-m{
+    margin-bottom: 2rem;
+}
+
+.mg-b-s{
+    margin-bottom: 1rem;
+}
+
+.mg-rt-l{
+    margin-right: 4rem;
+}
+
+.mg-rt-m{
+    margin-right: 2rem;
+}
+
+.mg-rt-s{
+    margin-right: 1rem;
+}
+
+.mg-lt-l{
+    margin-left: 4rem;
+}
+
+.mg-lt-m{
+    margin-left: 2rem;
+}
+
+.mg-lt-s{
+    margin-left: 1rem;
+}
+
+
+
+/* Paddings */
+
+.pd-r-l{
+    padding:4rem;
+}
+
+.pd-r-m{
+    padding:1.5rem;
+}
+
+.pd-r-s{
+    padding:1rem;
+}
+
+.pd-t-l{
+    padding-top: 4rem;
+}
+
+.pd-t-m{
+    padding-top: 2rem;
+}
+
+.pd-t-s{
+    padding-top: 1rem;
+}
+
+.pd-b-l{
+    padding-bottom: 4rem;
+}
+
+.pd-b-m{
+    padding-bottom: 2rem;
+}
+
+.pd-b-s{
+    padding-bottom: 1rem;
+}
+
+.pd-rt-l{
+    padding-right: 4rem;
+}
+
+.pd-rt-m{
+    padding-right: 2rem;
+}
+
+.pd-rt-s{
+    padding-right: 1rem;
+}
+
+.pd-lt-l{
+    padding-left: 4rem;
+}
+
+.pd-lt-m{
+    padding-left: 2rem;
+}
+
+.pd-lt-s{
+    padding-left: 1rem;
+}
+
+.pd-lr-l{
+    padding-left: 4rem;
+}
+
+.pd-lr-m{
+    padding-left: 2rem;
+}
+
+.pd-lr-s{
+    padding-left: 1rem;
+}
+
+.pd-tb-l{
+    padding-left: 4rem;
+}
+
+.pd-tb-m{
+    padding-left: 2rem;
+}
+
+.pd-tb-s{
+    padding-left: 1rem;
+}
+
+
+/* Buttons */
+
+.btn-submit{
+    padding: 12px;
+	background: green;
+	border: none;
+	border-radius: 5px;
+    font-size:17px;
+	color: white;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.3)
+}
+
+.btn-update{
+    padding: 12px;
+	background: skyblue;
+	border: none;
+	border-radius: 5px;
+    font-size:17px;
+	color: white;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.3)
+}
+
+.btn-reset{
+    padding: 12px;
+	background: yellow;
+	border: none;
+	border-radius: 5px;
+    font-size:17px;
+	color: white;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.3)
+}
+
+.btn-cancel{
+    padding: 12px;
+	background: #ad0101;
+	border: none;
+	border-radius: 5px;
+    font-size:17px;
+	color: white;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.3)
+}
+
+.btn-exit{
+    padding: 12px;
+	background: red;
+	border: none;
+	border-radius: 5px;
+    font-size:17px;
+	color: white;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.3)
+}
+
+/* Inputs */
+
+.shady-input{
+    outline: none;
+    border: none;
+    color: #333;
+    border-bottom: 1px solid #000;
+    width: 90%;
+    box-sizing: border-box;
+    padding: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.round-input{
+    outline: none;
+    border: 1px solid black;
+    background: rgba(0,0,0,0.1);
+    width: 80%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    font-weight: lighter;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3)
+}
+
+.non-bd-input{
+    outline: none;
+    border: none;
+    background: rgba(0,0,0,0.1);
+    width: 80%;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: lighter;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3)
+}
+

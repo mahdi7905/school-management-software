@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/CSS/utilities.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/media.css' %}">
+    <title>Report</title>
+    <style>
+        .view .container img{
+            width: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--sec-color);
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">
+        <div class="open"></div>
+        <div class="close"></div>
+    </label>
+    <div class="burger-nav">
+        <div class="flexes cd pd-r-m">
+            <img src="{% static 'images/pngs/dashboard.jpeg' %}" class="dash">
+            <h2>Dashboard</h2>
+        </div>
+        <ul class="card">
+            <li><a href="{% url 'admission-letter' %}" class="flexs"><img src="{% static 'images/pngs/Admission.png' %}">Admission Letter</a></li>
+            <li><a href="{% url 'dashboard' %}" class="flexs"><img src="{% static 'images/pngs/bio.png' %}">Bio-data</a></li>
+            <li><a href="{% url 'attachments' %}" class="flexs"><img src="{% static 'images/pngs/attachments.png' %}">Attachments</a></li>
+            <li><a href="{% url 'result' %}" class="flexs"><img src="{% static 'images/pngs/result.png' %}">Result</a></li>
+            <li><a href="{% url 'report' %}" class="flexs"><img src="{% static 'images/pngs/report.png' %}">Mid-Term Report</a></li>
+            <li><a href="#" class="flexs"><img src="{% static 'images/pngs/reset.png' %}">Reset password</a></li>
+            <li><a href="{% url 'logout' %}" class="flexs"><img src="{% static 'images/pngs/log-out.png' %}">Logout</a></li>
+        </ul>
+    </div>
+    <div class="divider">
+        <div class="menu pd-r-m">
+            <div class="fixed">
+                <div class="card flexes">
+                    <img src="{% static 'images/pngs/dashboard.jpeg' %}" class="dash">
+                    <h2>Dashboard</h2>
+                </div>
+                
+                <ul class="card">
+                    <li><a href="{% url 'admission-letter' %}" class="flexs"><img src="{% static 'images/pngs/Admission.png' %}">Admission Letter</a></li>
+                    <li><a href="{% url 'dashboard' %}" class="flexs"><img src="{% static 'images/pngs/bio.png' %}">Bio-data</a></li>
+                    <li><a href="{% url 'attachments' %}" class="flexs"><img src="{% static 'images/pngs/attachments.png' %}">Attachments</a></li>
+                    <li><a href="{% url 'result' %}" class="flexs"><img src="{% static 'images/pngs/result.png' %}">Result</a></li>
+                    <li class="active"><a href="{% url 'report' %}" class="flexs"><img src="{% static 'images/pngs/report.png' %}">Mid-Term Report</a></li>
+                    <li><a href="#" class="flexs"><img src="{% static 'images/pngs/reset.png' %}">Reset password</a></li>
+                    <li><a href="{% url 'login' %}" class="flexs"><img src="{% static 'images/pngs/log-out.png' %}">Logout</a></li>
+                </ul>
+                
+            </div>
+        </div>
+        <div class="view">
+           
+            <div class="container">
+                <div class="header flexx pd-t-m">
+                    <img src="{{request.user.pupil.passport.url}}" class="mg-b-s passport">
+                    <p class="pupil-name">{{request.user.Pupil.first_name}} {{request.user.Pupil.surname}} {{request.user.Pupil.other_name}}</p>
+                    <p class="pd-b-s"><span class="bold-text">Admission Number:</span> {{request.user}}</p>
+                    <p class="pd-b-s"><span class="bold-text">Conventional Grade:</span> {{request.user.pupil.Conventional_Grade}} ({{request.user.pupil.Conventional_Arm}})</p>
+                    <p class="pd-b-s"><span class="bold-text">Islamiyyah Grade:</span> {{request.user.pupil.Islamiya_Grade}} ({{request.user.pupil.Islamiya_Arm}})</p>
+
+                </div>
+                <div class="contents card mg-t-m">
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Grade One</h3>
+                        <div class="result-container"> 
+                            <h3 class="details-header pd-r-s">Conventional</h3>
+                            <div class="flex-result">
+                                {% if request.user.pupil.First_Term_Grade_1_Report %}
+                                <a href="{{request.user.pupil.First_Term_Grade_1_Report.url}}" class="result-link pd-r-s round" download="G1_First_Term_Report">Term One</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term One</a>
+                                {% endif %}
+                                {% if request.user.pupil.Second_Term_Grade_1_Report %}
+                                <a href="{{request.user.pupil.Second_Term_Grade_1_Report.url}}" class="result-link pd-r-s round" download="G1_Second_Term_Report">Term Two</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Two</a>
+                                {% endif %}
+                                {% if request.user.pupil.Third_Term_Grade_1_Report %}
+                                <a href="{{request.user.pupil.Third_Term_Grade_1_Report.url}}" class="result-link pd-r-s round" download="G1_Third_Term_Report">Term Three</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Three</a>
+                                {% endif %}
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Grade Two</h3>
+                        <div class="result-container"> 
+                            <h3 class="details-header pd-r-s">Conventional</h3>
+                            <div class="flex-result">
+                                {% if request.user.pupil.First_Term_Grade_2_Report %}
+                                <a href="{{request.user.pupil.First_Term_Grade_2_Report.url}}" class="result-link pd-r-s round" download="G2_First_Term_Report">Term One</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term One</a>
+                                {% endif %}
+                                {% if request.user.pupil.Second_Term_Grade_2_Report %}
+                                <a href="{{request.user.pupil.Second_Term_Grade_2_Report.url}}" class="result-link pd-r-s round" download="G2_Second_Term_Report">Term Two</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Two</a>
+                                {% endif %}
+                                {% if request.user.pupil.Third_Term_Grade_2_Report %}
+                                <a href="{{request.user.pupil.Third_Term_Grade_2_Report.url}}" class="result-link pd-r-s round" download="G2_Third_Term_Report">Term Three</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Three</a>
+                                {% endif %}
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Grade Three</h3>
+                        <div class="result-container"> 
+                            <h3 class="details-header pd-r-s">Conventional</h3>
+                            <div class="flex-result">
+                                {% if request.user.pupil.First_Term_Grade_3_Report %}
+                                <a href="{{request.user.pupil.First_Term_Grade_3_Report.url}}" class="result-link pd-r-s round" download="G3_First_Term_Report">Term One</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term One</a>
+                                {% endif %}
+                                {% if request.user.pupil.Second_Term_Grade_3_Report %}
+                                <a href="{{request.user.pupil.Second_Term_Grade_3_Report.url}}" class="result-link pd-r-s round" download="G3_Second_Term_Report">Term Two</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Two</a>
+                                {% endif %}
+                                {% if request.user.pupil.Third_Term_Grade_3_Report %}
+                                <a" href="{{request.user.pupil.Third_Term_Grade_3_Report.url}}" class="result-link pd-r-s round" download="G3_Third_Term_Report">Term Three</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Three</a>
+                                {% endif %}
+                            </div>
+                            
+                        </div>
+                       
+                    </div>
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Grade Four</h3>
+                        <div class="result-container"> 
+                            <h3 class="details-header pd-r-s">Conventional</h3>
+                            <div class="flex-result">
+                                {% if request.user.pupil.First_Term_Grade_4_Report %}
+                                <a href="{{request.user.pupil.First_Term_Grade_4_Report.url}}" class="result-link pd-r-s round" download="G4_First_Term_Report">Term One</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term One</a>
+                                {% endif %}
+                                {% if request.user.pupil.Second_Term_Grade_4_Report %}
+                                <a href="{{request.user.pupil.Second_Term_Grade_4_Report.url}}" class="result-link pd-r-s round" download="G4_Second_Term_Report">Term Two</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Two</a>
+                                {% endif %}
+                                {% if request.user.pupil.Third_Term_Grade_4_Report %}
+                                <a href="{{request.user.pupil.Third_Term_Grade_4_Report.url}}" class="result-link pd-r-s round" download="G4_Third_Term_Report">Term Three</a>
+                                {% else %}
+                                <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Three</a>
+                                {% endif %}
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Grade Five</h3>
+                        <div class="result-container"> 
+                            <h3 class="details-header pd-r-s">Conventional</h3>
+                        <div class="flex-result">
+                            {% if request.user.pupil.First_Term_Grade_5_Report %}
+                            <a href="{{request.user.pupil.First_Term_Grade_5_Report.url}}" class="result-link pd-r-s round" download="G5_First_Term_Report">Term One</a>
+                            {% else %}
+                            <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term One</a>
+                            {% endif %}
+                            {% if request.user.pupil.Second_Term_Grade_5_Report %}
+                            <a href="{{request.user.pupil.Second_Term_Grade_5_Report.url}}" class="result-link pd-r-s round" download="G5_Second_Term_Report">Term Two</a>
+                            {% else %}
+                            <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Two</a>
+                            {% endif %}
+                            {% if request.user.pupil.Third_Term_Grade_5_Report %}
+                            <a href="{{request.user.pupil.Third_Term_Grade_5_Report.url}}" class="result-link pd-r-s round" download="G5_Third_Term_Report">Term Three</a>
+                            {% else %}
+                            <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Three</a>
+                            {% endif %}
+                        </div>
+                        
+                    </div>
+                    
+                            
+                        </div>
+                    </div>
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Grade Six</h3>
+                        <div class="result-container"> 
+                            <h3 class="details-header pd-r-s">Conventional</h3>
+                        <div class="flex-result">
+                            {% if request.user.pupil.First_Term_Grade_6_Report %}
+                            <a href="{{request.user.pupil.First_Term_Grade_6_Report.url}}" class="result-link pd-r-s round" download="G6_First_Term_Report">Term One</a>
+                            {% else %}
+                            <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term One</a>
+                            {% endif %}
+                            {% if request.user.pupil.Second_Term_Grade_6_Report %}
+                            <a href="{{request.user.pupil.Second_Term_Grade_6_Report.url}}" class="result-link pd-r-s round" download="G6_Second_Term_Report">Term Two</a>
+                            {% else %}
+                            <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Two</a>
+                            {% endif %}
+                            {% if request.user.pupil.Third_Term_Grade_6_Report %}
+                            <a href="{{request.user.pupil.Third_Term_Grade_6_Report.url}}" class="result-link pd-r-s round" download="G6_Third_Term_Report">Term Three</a>
+                            {% else %}
+                            <a href="{% url 'no-record' %}" class="result-link pd-r-s round">Term Three</a>
+                            {% endif %}
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/CSS/utilities.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/media.css' %}">
+    <title>Bio-Data</title>
+    <style>
+        .view .container img{
+            width: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--sec-color);
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">
+        <div class="open"></div>
+        <div class="close"></div>
+    </label>
+    <div class="burger-nav">
+        <div class="flexes cd pd-r-m">
+            <img src="{% static 'images/pngs/dashboard.jpeg' %}" class="dash">
+            <h2>Dashboard</h2>
+        </div>
+        <ul class="card">
+            <li><a href="{% url 'admission-letter' %}" class="flexs"><img src="{% static 'images/pngs/Admission.png' %}">Admission Letter</a></li>
+            <li><a href="{% url 'dashboard' %}" class="flexs"><img src="{% static 'images/pngs/bio.png' %}">Bio-data</a></li>
+            <li><a href="{% url 'attachments' %}" class="flexs"><img src="{% static 'images/pngs/attachments.png' %}">Attachments</a></li>
+            <li><a href="{% url 'result' %}" class="flexs"><img src="{% static 'images/pngs/result.png' %}">Result</a></li>
+            <li><a href="{% url 'report' %}" class="flexs"><img src="{% static 'images/pngs/report.png' %}">Mid-Term Report</a></li>
+            <li><a href="#" class="flexs"><img src="{% static 'images/pngs/reset.png' %}">Reset password</a></li>
+            <li><a href="{% url 'logout' %}" class="flexs"><img src="{% static 'images/pngs/log-out.png' %}">Logout</a></li>
+        </ul>
+    </div>
+    <div class="divider">
+        <div class="menu pd-r-m">
+            <div class="fixed">
+                <div class="card flexes">
+                    <img src="{% static 'images/pngs/dashboard.jpeg' %}" class="dash">
+                    <h2>Dashboard</h2>
+                </div>
+                
+                <ul class="card">
+                    <li><a href="{% url 'admission-letter' %}" class="flexs"><img src="{% static 'images/pngs/Admission.png' %}">Admission Letter</a></li>
+                    <li class="active"><a href="dashboard.html" class="flexs"><img src="{% static 'images/pngs/bio.png' %}">Bio-data</a></li>
+                    <li><a href="{% url 'attachments' %}" class="flexs"><img src="{% static 'images/pngs/attachments.png' %}">Attachments</a></li>
+                    <li><a href="{% url 'result' %}" class="flexs"><img src="{% static 'images/pngs/result.png' %}">Result</a></li>
+                    <li><a href="{% url 'report' %}" class="flexs"><img src="{% static 'images/pngs/report.png' %}">Mid-Term Report</a></li>
+                    <li><a href="#" class="flexs"><img src="{% static 'images/pngs/reset.png' %}">Reset password</a></li>
+                    <li><a href="{% url 'logout' %}" class="flexs"><img src="{% static 'images/pngs/log-out.png' %}">Logout</a></li>
+                </ul>
+                
+            </div>
+        </div>
+        <div class="view">
+            <div class="container">
+                <div class="header flexx pd-t-m">
+                    <img src="{{request.user.pupil.passport.url}}" class="mg-b-s passport">
+                    <p class="pupil-name">{{request.user.Pupil.first_name}} {{request.user.Pupil.surname}} {{request.user.Pupil.other_name}}</p>
+                    <p class="pd-b-s"><span class="bold-text">Admission Number:</span> {{request.user}}</p>
+                    <p class="pd-b-s"><span class="bold-text">Conventional Grade:</span> {{request.user.pupil.Conventional_Grade}} ({{request.user.pupil.Conventional_Arm}})</p>
+                    <p class="pd-b-s"><span class="bold-text">Islamiyyah Grade:</span> {{request.user.pupil.Islamiya_Grade}} ({{request.user.pupil.Islamiya_Arm}})</p>
+                </div>
+                <div class="contents card mg-t-m">
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Personal Details</h3>
+                        <div class="flex"> 
+                            <p class="pd-r-m"><span class="bold-text">First Name:</span> {{request.user.pupil.first_name}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Surname:</span> {{request.user.pupil.surname}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Other Name(s):</span> {{request.user.pupil.other_name}}</p>
+                            <p class="pd-r-m"><span class="bold-text">NIN:</span> {{request.user.pupil.NIN}}</p>
+                            <p class="pd-r-m"><span class="bold-text">DOB:</span> {{request.user.pupil.DOB}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Gender:</span> {{request.user.pupil.Gender}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Blood Group:</span> {{request.user.pupil.Blood_Group}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Genotype:</span> {{request.user.pupil.Genotype}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Nationality:</span> {{request.user.pupil.Nationality}}</p>
+                            <p class="pd-r-m"><span class="bold-text">State of Origin:</span> {{request.user.pupil.State_of_Origin}}</p>
+                            <p class="pd-r-m"><span class="bold-text">LGA:</span> {{request.user.pupil.LGA}}</p>
+                            <p class="pd-r-m"><span class="bold-text">State of Residence:</span> {{request.user.pupil.State_of_Residence}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Local Language:</span> {{request.user.pupil.Local_Language}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Address:</span> {{request.user.pupil.Address}}</p>
+                        </div>
+                    </div>
+
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Parent: Mother</h3>
+                        <div class="flex"> 
+                            <p class="pd-r-m"><span class="bold-text">Title:</span> {{request.user.pupil.Mom_Title}}</p>
+                            <p class="pd-r-m"><span class="bold-text">First Name:</span> {{request.user.pupil.Mom_First_Name}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Surname:</span> {{request.user.pupil.Mom_Surname}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Other Name:</span> {{request.user.pupil.Mom_Other_Name}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Occupation:</span> {{request.user.pupil.Mom_Occupation}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Home Address:</span> {{request.user.pupil.Mom_Home_Address}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Work Address:</span> {{request.user.pupil.Mom_Work_Address}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Phone Number (Home):</span> {{request.user.pupil.Mom_Phone_home}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Phone Number (Work):</span> {{request.user.pupil.Mom_Phone_work}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Email Address:</span> {{request.user.pupil.Mom_Email}}</p>
+                        </div>
+                    </div>
+
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Parent: Father</h3>
+                        <div class="flex"> 
+                            <p class="pd-r-m"><span class="bold-text">Title:</span> {{request.user.pupil.Dad_Title}}</p>
+                            <p class="pd-r-m"><span class="bold-text">First Name:</span> {{request.user.pupil.Dad_First_Name}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Surname:</span> {{request.user.pupil.Dad_Surname}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Other Name:</span> {{request.user.pupil.Dad_Other_Name}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Occupation:</span> {{request.user.pupil.Dad_Occupation}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Home Address:</span> {{request.user.pupil.Dad_Home_Address}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Work Address:</span> {{request.user.pupil.Dad_Work_Address}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Phone Number (Home):</span> {{request.user.pupil.Dad_Phone_home}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Phone Number (Work):</span> {{request.user.pupil.Dad_Phone_work}}</p>
+                            <p class="pd-r-m"><span class="bold-text">Email Address:</span> {{request.user.pupil.Dad_Email}}</p>
+                        </div>
+                    </div>
+
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Medical Details</h3>
+                        <div class="flex"> 
+                            <p class="pd-r-m"><span class="bold-text">Sicknesses:</span> {{request.user.pupil.Sicknesses}}</p>             
+                            <p class="pd-r-m"><span class="bold-text">Disabilities:</span> {{request.user.pupil.Disabilities}}</p>                   
+                            <p class="pd-r-m"><span class="bold-text">Allergies:</span> {{request.user.pupil.Allergies}}</p>                     
+                            <p class="pd-r-m"><span class="bold-text">Symptoms:</span> {{request.user.pupil.Symptoms}}</p>                
+                            <p class="pd-r-m"><span class="bold-text">Registered Hospital:</span> {{request.user.pupil.Registered_Hospoital}}</p>              
+                            <p class="pd-r-m"><span class="bold-text">Card Number:</span> {{request.user.pupil.Card_Number}}</p>                  
+                            <p class="pd-r-m"><span class="bold-text">Hospital Address:</span> {{request.user.pupil.Hospital_Address}}</p>                   
+                        </div>
+                    </div>
+
+                    <div class="details mg-b-s">
+                        <h3 class="details-header pd-r-s">Medical Emergency</h3>
+                        <div class="flex"> 
+                            <p class="pd-r-m">In the event of medical emergency, the first point of contact is: <span class="bold-text">{{request.user.pupil.Medical_Contact}}</span></p>                          
+                            <p class="pd-r-m"><span class="bold-text">Address:</span> {{request.user.pupil.Medical_Contact_Address}}</p>                         
+                            <p class="pd-r-m"><span class="bold-text">Phone Number (Home):</span> {{request.user.pupil.Medical_Contact_Phone}}</p>                     
+                            <p class="pd-r-m"><span class="bold-text">Relationship with the Child:</span> {{request.user.pupil.Medical_Contact_Relationship}}</p>                         
+                            <p class="pd-r-m">In the event of medical emergency, I agree that my child/ward be taken to: <span class="bold-text">{{request.user.pupil.Medical_Emergency_Hospital}}.</span> 
+                                              And I shall take full financial responsibility of the medical treatment he/she may recieve from the hospital.</p>
+                            <p class="pd-r-m"><span class="bold-text">Hospital Address:</span> {{request.user.pupil.Medical_Emergency_Hospital_Address}}</p>  
+                            <p class="pd-r-m">I also give my concent to the management of the school to provide treatment for minor injuries.</p>
+                        </div>
+                    </div> 
+                    <div class=" mg-b-s">
+                        
+                        <div class="flex"> 
+                            <a href="{% url 'update-pupil' request.user.pupil.id %}" class="btn">Update Bio-data</a> 
+                        </div>
+                    </div> 
+                                            
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

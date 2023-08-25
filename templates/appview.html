@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Applications</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+    <style>
+        .info{
+            padding: 10px;
+            
+        }
+        .info p{
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid green;
+            text-transform: uppercase;
+        }
+        .info p .title{
+            
+            font-weight: bold;
+        }
+        .application-card{
+            margin-bottom: 20px;
+        }
+        .mail{
+            text-transform: lowercase;
+            font-weight: lighter;
+        }
+        .doc{
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 128, 0, 0.357);
+            color: #333;
+            transition: all .3s ease;
+        }
+        .doc:hover{
+            background-color: rgba(0, 128, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Nav Area -->
+    <section class="nav-area">
+        <div class="nav-container container-flex">
+            <a href="{% url 'kia-admin' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            <ul class="list-flex">
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+
+    
+
+    <!-- Job Applications -->
+    <section class="application-area">
+        <div class="application-container">
+            <div class="application-card">
+               <h3>Applicant's Info</h3>
+               <hr>
+               <div class="application-flex">
+                    <div class="info">
+                        <p><span class="title">First Name:</span> {{app.First_Name}}</p>
+                        <p><span class="title">SurName:</span> {{app.Surname}}</p>
+                        <p><span class="title">Other Name:</span> {{app.Other_Name}}</p>
+                        <p><span class="title">date of birth:</span> {{app.DOB}}</p>
+                        <p><span class="title">Gender:</span> {{app.Gender}}</p>
+                        <p><span class="title">marital status:</span> {{app.Marital_Status}}</p>
+                        <p><span class="title">nationality:</span> {{app.Nationality}}</p>
+                        <p><span class="title">state of origin:</span> {{app.State_of_Origin}}</p>
+                        <p><span class="title">state of residence:</span> {{app.State_of_residence}}</p>
+                        <p><span class="title">address:</span> {{app.Address}}</p>
+                        <p><span class="title">phone number:</span> {{app.Phone_Number}}</p>
+                        <p><span class="title">email:</span> <span class="mail"> {{app.Email}}</span></p>
+                        <p><span class="title">qualification:</span> {{app.Qualification}}</p>
+                        <p><span class="title">field of study:</span> {{app.Field_of_Study}}</p>
+                        <p><span class="title">course of study:</span> {{app.Course_of_study}}</p>
+                        <p><span class="title">application date:</span> {{app.date_created}}</p>
+                    </div>
+               </div>
+               
+            </div>
+            <div class="application-card">
+                <h3>Applicant's Documents</h3>
+                <hr>
+                <div class="application-flex">
+                     <div class="info">
+                        <a href="{{app.CV.url}}" class="doc" target="_blank">Applicant's CV</a>
+                        <a href="{{app.Application_letter.url}}" class="doc" target="_blank">Application Letter</a>
+                     </div>
+                </div>
+                
+             </div>
+            
+        </div>
+    </section>
+</body>
+</html>

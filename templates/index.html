@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/CSS/utilities.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/media.css' %}">
+    <title>Home page</title>
+    <style>
+        .post-image{
+            width: 100%;
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+        .headline{
+            font-size: 30px;
+        }
+        .date{
+            color: rgb(203, 203, 203);
+            font-size: 15px;
+            background-color: rgb(64, 64, 64);
+            padding: 5px;
+        }
+        .content{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Nav Area -->
+    <!-- bugger menu -->
+    <div class="b-area">
+        <input type="checkbox" id="check">
+    <label for="check">
+            <div class="hambuger"></div>
+    </label>
+    <div class="wrapper">
+        <div class="bugger-list">
+            <ul>
+                <li><a href="{% url 'our-programmes' %}">Our Programmes</a></li>
+                <li><a href="{% url 'tables' %}">Tables</a></li>
+                <li><a href="{% url 'admission' %}">Admission</a></li>
+                <li><a href="{% url 'vacancy' %}">Vacancy</a></li>
+                <li><a href="{% url 'portal' %}" target="_blank">Portal login</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    
+    <!-- main nav-->
+    <div class="nav-section">
+        <div class="container flex">
+            <a href="{% url 'homepage' %}"><img src="{% static 'images/pngs/logo.png' %}" class="logo"></a>
+
+            <ul class="flex">
+                <li class="ul-size"><a href="{% url 'our-programmes' %}">Our Programmes</a></li>
+                <li class="ul-size">Tables
+                    <div class="grid drop-down pd-r-m">
+                        <ul>
+                            <li><a href="{% url 'term-calendar' %}">Term calendar</a></li>
+                            <li><a href="{% url 'meal-table' %}">Meal Table</a></li>
+                            <li><a href="{% url 'test-time-table' %}">C.A. Time Table</a></li>
+                            <li><a href="{% url 'exam-time-table' %}">Exam Time Table</a></li>
+                        </ul>
+                        <div class="img-container flex pd-r-s">
+                            <img src="{% static 'images/test-pics/schedule.png' %}" class="nav-img">
+                        </div>
+                          
+                    </div>
+                </li>
+                <li class="ul-size"><a href="{% url 'admission' %}">Admission</a></li>
+                <li class="ul-size"><a href="{% url 'vacancy' %}">Vacancy</a></li>
+                <li class="ul-size"><a href="{% url 'portal' %}" target="_blank">Portal login</a></li>
+            </ul>
+            <div class="list">
+                <ul>
+                    <li><a href="{% url 'our-programmes' %}">Our Programmes</a></li>
+                    <li><a href="{% url 'tables' %}">Tables</a></li>
+                    <li><a href="{% url 'admission' %}">Admission</a></li>
+                    <li><a href="{% url 'vacancy' %}">Vacancy</a></li>
+                    <li><a href="{% url 'portal' %}" target="_blank">Portal login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+     <!-- banner -->
+    <div class="banner"></div>
+    <marquee class="notice">For better user experience, view site on a computer.</marquee>
+
+    <!-- Content Area -->
+    <div class="content-section grid">
+        <div class="contents">
+            <h3 class="pd-r-s small-card">Feeds</h3>
+            {% for post in posts %}
+            <div class="post-card mg-b-s">
+                <h2 class="headline">{{post.Headline}}</h2>
+                {% if post.Image %}
+                <img src="{{post.Image.url}}" class="post-image">
+                {% endif %}
+                <p class="content">{{post.Content}}</p>
+                <span class="date">{{post.date_created}}</span>
+                
+            </div>
+            {% endfor %}
+            
+            
+           
+            
+        </div>
+        <div class="imp-links small-card">
+            <div class="links mg-b-l">
+                <h3 class="pd-r-s">Important links</h3>
+                <a href="{% url 'portal' %}" target="_blank">Portal login</a>
+                <a href="{% url 'admission' %}">Admission</a>
+                <a href="{% url 'vacancy' %}">Vacancy</a>
+                <a href="#">Frequently asked questions</a>
+            </div>
+            <div class="mg-b-l">
+                <h3 class=" pd-r-s">Contacts</h3>
+                <div class="contacts pd-r-s flex"><img src="{% static 'images/pngs/phone.png' %}" class="social"><span>phone number1</span></div>
+                <div class="contacts pd-r-s flex"><img src="{% static 'images/pngs/phone.png' %}" class="social"><span>phone number2</span></div>
+                <div class="contacts pd-r-s flex"><img src="{% static 'images/pngs/email.png' %}" class="social"><span><i>email@gmail.com</i></span></div>
+                <div class="contacts pd-r-s flex"><img src="{% static 'images/pngs/insta.png' %}" class="social"><span>@instagram</span></div>
+            </div>
+        </div>
+   </div>
+    <!-- Footer -->
+    <div class="footer-area pd-r-s">
+        <div class="container grid">
+            <div class="adress mg-b-m">
+                <img src="{% static 'images/pngs/logo.png' %}" class="logo">
+                <p>أكاديمية كدونا المتكاملة</p>
+                <p class="bold">KADUNA INTEGRATED ACADEMY</p>
+                <p class="casual-text"> NO.10A OGBADU ROAD, BADARAWA/MALALI, KADUNA</p>
+                <p class="casual-text"> MOTTO: ...nurturing future leader</p>
+            </div>
+            <p class="casual-text pd-r-s mg-t-l">@KIA 2022</p>
+        </div>
+    </div>
+</body>
+</html>

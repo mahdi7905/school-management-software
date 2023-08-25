@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Application</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .nav-section{
+            width: 100%;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            position: fixed;
+            top: 0;
+            background-color: white;
+        }
+        .logo{
+            width: 50px;
+        }
+        .container{
+            width: 90%;
+            margin: 0 auto;
+            padding: 5px;
+        }
+        .program-area{
+            width: 100%;
+            margin-top: 100px;
+        }
+        .application-container{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .apply-header{
+            text-align: center;
+            margin: 15px;
+            color: green;
+            font-size: 30px;
+        }
+        .application-form-control{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+
+        input[type="text"],
+        input[type="email"]{
+            outline: none;
+            border: none;
+            background: rgba(0,0,0,0.1);
+            width: 90%;
+            padding: 8px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            font-size: 20px;
+            font-weight: lighter;
+            box-sizing: border-box;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            }
+        .upload{
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .btn-application{
+            width: 80%;
+            padding: 12px;
+            border: 0;
+            background-color: green;
+            color: white;
+            border-radius: 20px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            transition: all .2s ease;
+        }
+        .btn-application:hover{
+            transform: scale(1.03);
+        }
+        .error{
+            color: red;
+            text-align: left;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Nav Area -->
+    <!-- bugger menu -->
+   
+    
+    <!-- main nav-->
+    <div class="nav-section">
+        <div class="container flex">
+            <a href="{% url 'homepage' %}"><img src="{% static 'images/pngs/logo.png' %}" class="logo"></a>
+        </div>
+    </div>
+
+   
+    <!-- Contents -->
+    <section class="program-area">
+        <div class="application-container">
+            <h1 class="apply-header">Teaching Application</h1>
+            <p class="error">{{form.errors}}</p>
+            <div class="application-form-control">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.First_Name}}
+                    {{form.Surname}}
+                    {{form.Other_Name}}
+                    {{form.DOB}}
+                    {{form.Gender}}
+                    {{form.Marital_Status}}
+                    {{form.Nationality}}
+                    {{form.State_of_Origin}}
+                    {{form.State_of_residence}}
+                    {{form.Address}}
+                    {{form.Phone_Number}}
+                    {{form.Email}}
+                    {{form.Qualification}}
+                    {{form.Field_of_Study}}
+                    {{form.Course_of_study}}
+                    <div class="upload">
+                        <label class="label" for="cv">Upload CV</label>
+                        {{form.CV}}
+                    </div>
+                    <div class="upload">
+                        <label class="label" for="cv">Application Letter</label>
+                        {{form.Application_letter}}
+                    </div>
+                    <input type="submit" value="Send Application" class="btn-application">
+                </form>
+            </div> 
+        </div>
+    </section>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'First Name';
+    form_fields[2].placeholder = 'Surname';
+    form_fields[3].placeholder = 'Other Name';
+    form_fields[4].placeholder = 'Date of Birth (dd/mm/yyyy)';
+    form_fields[5].placeholder = 'Gender';
+    form_fields[6].placeholder = 'Marital Status';
+    form_fields[7].placeholder = 'Nationality';
+    form_fields[8].placeholder = 'State of Origin';
+    form_fields[9].placeholder = 'State of Residence';
+    form_fields[10].placeholder = 'Address';
+    form_fields[11].placeholder = 'Phone Number';
+    form_fields[12].placeholder = 'Email Address';
+    form_fields[13].placeholder = 'Qualification';
+    form_fields[14].placeholder = 'Field of Study';
+    form_fields[15].placeholder = 'Course of Study';
+</script>
+
+
+   
+</body>
+</html>

@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/CSS/utilities.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/media.css' %}">
+    <title>Meal Table</title>
+</head>
+<body>
+    <!-- Nav Area -->
+    <!-- bugger menu -->
+    <div class="b-area">
+        <input type="checkbox" id="check">
+    <label for="check">
+            <div class="hambuger"></div>
+    </label>
+    <div class="wrapper">
+        <div class="bugger-list">
+            <ul>
+                <li><a href="{% url 'our-programmes' %}">Our Programmes</a></li>
+                <li><a href="{% url 'tables' %}">Tables</a></li>
+                <li><a href="{% url 'admission' %}">Admission</a></li>
+                <li><a href="{% url 'vacancy' %}">Vacancy</a></li>
+                <li><a href="#" target="_blank">Portal login</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    
+    <!-- main nav-->
+    <div class="nav-section">
+        <div class="container flex">
+            <a href="{% url 'homepage' %}"><img src="{% static 'images/pngs/logo.png' %}" class="logo"></a>
+
+            <ul class="flex">                                
+                <li class="ul-size"><a href="{% url 'our-programmes' %}">Our Programmes</a></li>
+                <li class="ul-size">Tables
+                    <div class="grid drop-down pd-r-m">
+                        <ul>
+                            <li><a href="{% url 'term-calendar' %}">Term calendar</a></li>
+                            <li><a href="{% url 'meal-table' %}">Meal Table</a></li>
+                            <li><a href="{% url 'test-time-table' %}">C.A. Time Table</a></li>
+                            <li><a href="{% url 'exam-time-table' %}">Exam Time Table</a></li>
+                        </ul>
+                        <div class="img-container flex pd-r-s">
+                            <img src="{% static 'images/test-pics/schedule.png' %}" class="nav-img">
+                        </div>
+                          
+                    </div>
+                </li>
+                <li class="ul-size"><a href="{% url 'admission' %}">Admission</a></li>
+                <li class="ul-size"><a href="{% url 'vacancy' %}">Vacancy</a></li>
+                <li class="ul-size"><a href="#" target="_blank">Portal login</a></li>
+            </ul>
+            <div class="list">
+                <ul>
+                    <li><a href="{% url 'our-programmes' %}">Our Programmes</a></li>
+                    <li><a href="{% url 'tables' %}">Tables</a></li>
+                    <li><a href="{% url 'admission' %}">Admission</a></li>
+                    <li><a href="{% url 'vacancy' %}">Vacancy</a></li>
+                    <li><a href="#" target="_blank">Portal login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+   
+    <!-- Contents -->
+    <section class="table-area">
+        <div class="calendar-container">
+            <div class="calendar-card">
+                <div>
+                    <h2 class="calendar-header">Meal Table</h2>
+                    <div class="placeholder"></div>
+                </div>
+            
+                
+            </div>
+            
+            
+            
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    
+        <div class="footer-area pd-r-s">
+            <div class="container grid">
+                <div class="adress mg-b-m">
+                    <img src="{% static 'images/pngs/logo.png' %}" class="logo">
+                    <p>أكاديمية كدونا المتكاملة</p>
+                    <p class="bold">KADUNA INTEGRATED ACADEMY</p>
+                    <p class="casual-text"> NO.10A OGBADU ROAD, BADARAWA/MALALI, KADUNA</p>
+                    <p class="casual-text"> MOTTO: ...nurturing future leader</p>
+                </div>
+                <p class="casual-text pd-r-s mg-t-l">@KIA 2022</p>
+            </div>
+        </div>
+    
+   
+</body>
+</html>

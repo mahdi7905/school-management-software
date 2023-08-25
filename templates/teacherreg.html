@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Creation</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+    <style>
+        .f-area{
+            width: 100%;
+            
+            margin-top: 70px;
+            
+        }
+        .form-container{
+            height: calc(100vh - 70px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .options{
+            width: 100%;
+            text-align: left;
+        }
+        form select:focus{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Nav Area -->
+    <section class="nav-area">
+        <div class="nav-container container-flex">
+            <a href="{% url 'kia-admin' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            <ul class="list-flex">
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Form Area -->
+    <section class="f-area">
+        <div class="form-container">
+            <div class="teacher-form-card">
+                <h3>Register a Teacher</h3>
+                
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input name="f_name" type="text" placeholder="First Name" class="reg" required>
+                    <input name="surname" type="text" placeholder=" Surname" class="reg" required>
+                    <input name="o_name" type="text" placeholder="Other Names" class="reg">
+                    <input name="username" type="text" placeholder="Username" class="reg" required>
+                    <div class="options">
+                        <label for="selector">Position: </label>
+                        <select name="role" id="selector" required>
+                            <option>------------------------------------------</option>
+                            <option>CONVENTIONAL HEAD</option>
+                            <option>ISLAMIYA HEAD</option>
+                            <option>PRIMARY HEAD</option>
+                            <option>NURSERY HEAD</option>
+                            <option>PRIMARY TEACHER</option>
+                            <option>NURSERY TEACHER</option>
+                            <option>ISLAMIYA TEACHER</option>
+                        </select>
+                    </div>
+                    
+                    
+                    <input name="phone" type="text" placeholder="Phone Number" class="reg" required>
+                    <input name="email" type="text" placeholder="Email" class="reg" required>
+                    <input name="password" type="password" placeholder="Enter Password" class="reg" required>
+                    <input  type="submit" value="Register" class="btn btn-register">
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+   
+</body>
+</html>

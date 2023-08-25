@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Applications</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+</head>
+<body>
+    <!-- Nav Area -->
+    <section class="nav-area">
+        <div class="nav-container container-flex">
+            <a href="{% url 'kia-admin' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            <ul class="list-flex">
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+
+    
+
+    <!-- Job Applications -->
+    <section class="application-area">
+        <div class="application-container">
+            <div class="application-card">
+               <h3>Recieved Applications</h3>
+               <hr>
+               <div class="application-flex">
+                <table class="ex">
+                    <tr>
+                        <th>Applicant</th>
+                        <th>Application Date</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    {% for app in teachingapp %}
+                    <tr>
+                        {% if app.Other_Name %}
+                            <td>{{app.First_Name}} {{app.Surname}} {{app.Other_Name}}</td>
+                        {% else %}
+                            <td>{{app.First_Name}} {{app.Surname}}</td>
+                        {% endif %}
+                        <td>{{app.date_created}}</td>
+                        <td><a href="{% url 'view-application' app.id %}" class="btn btn-view">View Application</a></td>
+                        <td><a href="{% url 'delete-application' app.id %}" class="btn btn-delete">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                    
+                    
+                </table>
+               </div>
+               
+            </div>
+            
+        </div>
+    </section>
+</body>
+</html>

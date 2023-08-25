@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Emergency</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+</head>
+<body>
+     <!-- Nav Area -->
+     <section class="nav-area">
+        <div class="nav-container container-flex">
+            {% if request.user.teacher.position == 'CONVENTIONAL HEAD' %}
+            <a href="{% url 'kia-head-teacher' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% elif request.user.teacher.position == 'PRIMARY HEAD' %}
+            <a href="{% url 'sectional-head' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% elif request.user.teacher.position == 'NURSERY HEAD' %}
+            <a href="{% url 'sectional-head' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% elif request.user.teacher.position == 'ISLAMIYA HEAD' %}
+            <a href="{% url 'islamiya-head' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% else %}
+            <a href="{% url 'kia-admin' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% endif %}
+            <ul class="list-flex">
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- Bio Area -->
+    <section class="data-area">
+        <div class="data-container data-card">
+            <div class="details">
+            <div class="details">
+                <h3 class="details-header">Medical Details</h3>
+                <div class="data"> 
+                    <p><span class="bold-text">Sicknesses:</span> {{pupil.Sickness}}</p>             
+                    <p><span class="bold-text">Disabilities:</span> {{pupil.Disabilities}}</p>                   
+                    <p><span class="bold-text">Allergies:</span> {{pupil.Allergies}}</p>                     
+                    <p><span class="bold-text">Symptoms:</span> {{pupil.Symptoms}}</p>                
+                    <p><span class="bold-text">Registered Hospital:</span> {{pupil.Registered_Hospoital}}</p>              
+                    <p><span class="bold-text">Card Number:</span> {{pupil.Card_Number}}</p>                  
+                    <p><span class="bold-text">Hospital Address:</span> {{pupil.Hospital_Address}}</p>                   
+                </div>
+            </div>
+
+            <div class="details">
+                <h3 class="details-header">Medical Emergency</h3>
+                <div class="data"> 
+                    <p>In the event of medical emergency, the first point of contact is: <span class="bold-text">{{pupil.Medical_Contact}}</span></p>                          
+                    <p><span class="bold-text">Address:</span> {{pupil.Medical_Contact_Address}}</p>                         
+                    <p><span class="bold-text">Phone Number (Home):</span> {{pupil.Medical_Contact_Phone}}</p>
+                    <p><span class="bold-text">Phone Number (Work):</span> {{pupil.Medical_Contact}}</p>                        
+                    <p><span class="bold-text">Relationship with the Child:</span> {{pupil.Medical_Contact_Relationship}}</p>                         
+                    <p>In the event of medical emergency, I agree that my child/ward be taken to: <span class="bold-text">{{pupil.Medical_Emergency_Hospital}}.</span> 
+                        And I shall take full financial responsibility of the medical treatment he/she may recieve from the hospital.</p>
+                    <p><span class="bold-text">Hospital Address:</span> {{pupil.Medical_Emergency_Hospital_Address}}</p>
+                    <p>I also give my concent to the management of the school to provide treatment for minor injuries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

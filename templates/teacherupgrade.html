@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade Teachers Grade</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+</head>
+<body>
+    <!-- Nav Area -->
+    <section class="nav-area">
+        <div class="nav-container container-flex">
+            {% if request.user.teacher.position == 'CONVENTIONAL HEAD' %}
+            <a href="{% url 'kia-head-teacher' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% endif %}
+            {% if request.user.teacher.position == 'PRIMARY HEAD' %}
+            <a href="{% url 'sectional-head' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% endif %}
+            {% if request.user.teacher.position == 'NURSERY HEAD' %}
+            <a href="{% url 'sectional-head' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% endif %}
+            {% if request.user.teacher.position == 'ISLAMIYA HEAD' %}
+            <a href="{% url 'islamiya-head' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            {% endif %}
+            <ul class="list-flex">
+                
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Options -->
+    <section class="population-area">
+        <div class="pop-container menu-flex">
+            <a href="{% url 'teachers' %}" class="menu teacher-color">View Teachers</a>
+            {% if request.user.teacher.position == 'CONVENTIONAL HEAD' %}
+            <a href="{% url 'kia-head-teacher' %}" class="menu teacher-color">View Pupils</a>
+            {% endif %}
+            {% if request.user.teacher.position == 'PRIMARY HEAD' %}
+            <a href="{% url 'sectional-head' %}" class="menu teacher-color">View Pupils</a>
+            {% endif %}
+            {% if request.user.teacher.position == 'NURSERY HEAD' %}
+            <a href="{% url 'sectional-head' %}" class="menu teacher-color">View Pupils</a>
+            {% endif %}
+            {% if request.user.teacher.position == 'ISLAMIYA HEAD' %}
+            <a href="{% url 'islamiya-head' %}" class="menu teacher-color">View Pupils</a>
+            {% endif %}
+            <a href="{% url 'logout' %}" class="menu update-color">Logout</a>
+        </div>
+    </section>
+    <hr>
+
+    
+    <section class="grade-area">
+        <div class="grade-container">
+            
+            <div class="grade-card">
+                <h3 class="grade-header">Update Teachers Grades</h3>
+                
+                <div class="inner-card">
+                   <div class="update-form-control">
+                    {% if teacher.other_name %}
+                    <p>Change Grade for {{teacher.first_name}} {{teacher.surname}} {{teacher.other_name}}</p>
+                    {% else %}
+                    <p>Change Grade for {{teacher.first_name}} {{teacher.surname}}</p>
+                    {% endif %}
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{upgradeForm.as_p}}
+                        <input type="submit" value="Update">
+                    </form>
+                   </div>
+                </div>
+               
+            </div>
+            
+        </div>
+    </section>
+</body>
+</html>

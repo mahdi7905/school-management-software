@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Bio</title>
+    <link rel="stylesheet" href="{% static '/CSS/staff.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/staffmedia.css' %}">
+</head>
+<body>
+     <!-- Nav Area -->
+     <section class="nav-area">
+        <div class="nav-container container-flex">
+            <a href="{% url 'kia-admin' %}"><img src="{% static 'images/pngs/logo.png' %}" class="nav-logo"></a>
+            <ul class="list-flex">
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- Bio Area -->
+    <section class="data-area">
+        <div class="data-container data-card">
+            <div class="details">
+                <h3 class="details-header">Personal Details</h3>
+                <div class="data"> 
+                    <p><span class="bold-text">First Name:</span> {{pupil.first_name}}</p>
+                    <p><span class="bold-text">Surname:</span> {{pupil.surname}}</p>
+                    <p><span class="bold-text">Other Name(s):</span> {{pupil.other_name}}</p>
+                    <p><span class="bold-text">NIN:</span> {{pupil.NIN}}</p>
+                    <p><span class="bold-text">DOB:</span> {{pupil.DOB}}</p>
+                    <p><span class="bold-text">Gender:</span> {{pupil.Gender}}</p>
+                    <p><span class="bold-text">Blood Group:</span> {{pupil.Blood_Group}}</p>
+                    <p><span class="bold-text">Genotype:</span> {{pupil.Genotype}}</p>
+                    <p><span class="bold-text">Nationality:</span> {{pupil.Nationality}}</p>
+                    <p><span class="bold-text">State of Origin:</span> {{pupil.State_of_Origin}}</p>
+                    <p><span class="bold-text">LGA:</span> {{pupil.LGA}}</p>
+                    <p><span class="bold-text">State of Residence:</span> {{pupil.State_of_Residence}}</p>
+                    <p><span class="bold-text">Local Languages:</span> {{pupil.Local_Language}}</p>
+                    <p><span class="bold-text">Address:</span> {{pupil.Address}}</p>
+                </div>
+            </div>
+
+            <div class="details mg-b-s">
+                <h3 class="details-header">Parent: Mother</h3>
+                <div class="data"> 
+                    <p><span class="bold-text">Title:</span> {{pupil.Mom_Title}}</p>
+                    <p><span class="bold-text">First Name:</span> {{pupil.Mom_First_Name}}</p>
+                    <p><span class="bold-text">Surname:</span> {{pupil.Mom_Surname}}</p>
+                    <p><span class="bold-text">Other Name:</span> {{pupil.Mom_Other_Name}}</p>
+                    <p><span class="bold-text">Occupation:</span> {{pupil.Mom_Occupation}}</p>
+                    <p><span class="bold-text">Address (Home):</span> {{pupil.Mom_Home_Address}}</p>
+                    <p><span class="bold-text">Address (Work):</span> {{pupil.Mom_Work_Address}}</p>
+                    <p><span class="bold-text">Phone Number (Home):</span> {{pupil.Mom_Phone_home}}</p>
+                    <p><span class="bold-text">Phone Number (Work):</span> {{pupil.Mom_Phone_work}}</p>
+                    <p><span class="bold-text">Email Address:</span> {{pupil.Mom_Email}}</p>
+                </div>
+            </div>
+
+            <div class="details mg-b-s">
+                <h3 class="details-header">Parent: Father</h3>
+                <div class="data"> 
+                    <p><span class="bold-text">Title:</span> {{pupil.Dad_Title}}</p>
+                    <p><span class="bold-text">First Name:</span> {{pupil.Dad_First_Name}}</p>
+                    <p><span class="bold-text">Surname:</span> {{pupil.Dad_Surname}}</p>
+                    <p><span class="bold-text">Other Name:</span> {{pupil.Dad_Other_Name}}</p>
+                    <p><span class="bold-text">Occupation:</span> {{pupil.Dad_Occupation}}</p>
+                    <p><span class="bold-text">Address (Home):</span> {{pupil.Dad_Home_Address}}</p>
+                    <p><span class="bold-text">Address (Work):</span> {{pupil.Dad_Work_Address}}</p>
+                    <p><span class="bold-text">Phone Number (Home):</span> {{pupil.Dad_Phone_home}}</p>
+                    <p><span class="bold-text">Phone Number (Work):</span> {{pupil.Dad_Phone_work}}</p>
+                    <p><span class="bold-text">Email Address:</span> {{pupil.Dad_Email}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
